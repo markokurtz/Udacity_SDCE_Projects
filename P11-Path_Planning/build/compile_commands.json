@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/makurtz/udacity/CarND-Path-Planing-Project/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -I/usr/local/include -I/usr/local/opt/openssl/include  -g   -std=c++11 -o CMakeFiles/path_planning.dir/src/main.cpp.o -c /Users/makurtz/udacity/CarND-Path-Planing-Project/src/main.cpp",
+  "file": "/Users/makurtz/udacity/CarND-Path-Planing-Project/src/main.cpp"
+}
+]

@@ -1,0 +1,9 @@
+Solution implemented based on lesson 16 of PID Control unit.
+
+During testing/debugging PID components reacted according to Twiddle graph @ https://d17h27t6h515a5.cloudfront.net/topher/2017/March/58cc9802_twiddle/twiddle.png
+
+Hyper parameters found via combination of twiddle and manual tweaking, Twiddle part of code was not cleaned up/,fully functioning, so not a part of     submission.
+
+Throttle handled with simple reverse proportionality to cte, with target cte being 0.075
+
+Video file of final PID control part of submission zip, filename -> term2PIDcontrol.mov

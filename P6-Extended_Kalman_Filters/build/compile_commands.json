@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/Users/makurtz/udacity/ekf2/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -I/usr/local/include -I/usr/local/opt/openssl/include  -g   -std=c++11 -o CMakeFiles/ExtendedKF.dir/src/main.cpp.o -c /Users/makurtz/udacity/ekf2/src/main.cpp",
+  "file": "/Users/makurtz/udacity/ekf2/src/main.cpp"
+},
+{
+  "directory": "/Users/makurtz/udacity/ekf2/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -I/usr/local/include -I/usr/local/opt/openssl/include  -g   -std=c++11 -o CMakeFiles/ExtendedKF.dir/src/tools.cpp.o -c /Users/makurtz/udacity/ekf2/src/tools.cpp",
+  "file": "/Users/makurtz/udacity/ekf2/src/tools.cpp"
+},
+{
+  "directory": "/Users/makurtz/udacity/ekf2/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -I/usr/local/include -I/usr/local/opt/openssl/include  -g   -std=c++11 -o CMakeFiles/ExtendedKF.dir/src/FusionEKF.cpp.o -c /Users/makurtz/udacity/ekf2/src/FusionEKF.cpp",
+  "file": "/Users/makurtz/udacity/ekf2/src/FusionEKF.cpp"
+},
+{
+  "directory": "/Users/makurtz/udacity/ekf2/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -I/usr/local/include -I/usr/local/opt/openssl/include  -g   -std=c++11 -o CMakeFiles/ExtendedKF.dir/src/kalman_filter.cpp.o -c /Users/makurtz/udacity/ekf2/src/kalman_filter.cpp",
+  "file": "/Users/makurtz/udacity/ekf2/src/kalman_filter.cpp"
+}
+]

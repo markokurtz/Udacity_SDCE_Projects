@@ -1,0 +1,17 @@
+* The Model
+Student describes their model in detail. This includes the state, actuators and update equations.
+I used kinematic model, code for state, actuators and update equations is from QA session, and quiz. I 'played' to some extent with 'weights' of state costs, but through experimentation, noticed it's not worth while to go to far away from initial/given values. 
+
+
+* Timestep Length and Elapsed Duration (N & dt)
+Again values I ended up using come from QA session, I tried with other (larger) values of N, and smaller of dt, but it turned out to be quite computationally expensive, and not performing well on my now 5 years old laptop (had problems during screen capture - car could not steer properly - I guess solver was surpassing max_cpu_time limit);
+ ).
+
+* Polynomial Fitting and MPC Preprocessing
+Waypoints are transformed to vehicle orientation/coordinate system. Transformed waypoints are used with polyfit function to calculate coefficients, which in turn are used to plot desired reference line. 
+
+* Model Predictive Control with Latency
+As suggested during QA session, one could use kinematic model to predict state after 100ms and use it as starting point for MPC solve. There were some computational optimizations with model prediction equations, since I used vehicle orientation transformed x,y,psi values.
+
+Impressive piece of tech - MPC, so much smoother then PID, thank you for fun project.
+Resulting video attached -> filename: 

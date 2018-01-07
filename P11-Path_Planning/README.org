@@ -1,0 +1,47 @@
+#+TITLE: Reflection on Path Planing project implementation
+#+OPTIONS: toc:nil num:nil
+#+STARTUP: inlineimages
+
+Majority of code was taken and somewhat adapted from QA for project.
+
+* Generate path
+file: main.cpp
+Using spline to smooth out car trajectory.
+
+- init setup
+lines: 347 - 352
+initial setup for ptsx/y vectors used to keep widely 30m spaced points that will be smoothed out later with spline
+Also init and assign values to referential values for car
+
+
+- starting reference points - lines: 354 - 380
+check previous path size - if it's almost empty let's use car referential values we got from previous block, using car x/y position and angle we create tangent path between previous path point and current referential point. Otherwise if we have more points from previous path, then we will use [-1] and [-2] points to create again tangent point and store it in our ptsx, ptsy, also last point from previous path becomes new referential point.
+
+- frenet additional 3 points and shift to car's perspective
+lines: 384 - 409
+using frenet to add 3 more points per dimension x/y at distances 30,60 and 90 meters.
+shift car's reference angle to 0 degrees
+
+- spline
+lines: 411 - 415
+create spline from 5 points previously defined for x and y
+
+- generating path for simulator to follow
+lines 417 - 424
+2 new vectors to hold values x and y for path that will be sent to simulator. Fill those vectors with values from previous path to ensure smooth path transition from previous to next path. Then we calculate spline segments that match desired speed. In for loop we add iterate for number of missing next path points, and calculate x position based on speed we want to achieve. y is simply provided from spline for before mentioned x. After that we shift to global coordinates and push values to next_x/y_vals. 
+
+* State - governing logic
+file: main.cpp, lines: 304 - 345
+State and reactions of vehicle is modeled with simple switch and nested if clauses.
+When car nears to vehicle in front, it seeks to execute change lane, with tendency to make right lane change first if possible from middle lane.
+
+* Result
+Vehicle was able to drive autonomously without incidents around the track for 85.34 miles in 2h:00m:31s (where I got bored of waiting and terminated whole process). Out of 49.5 mph (intended max speed), car averaged at 42,72 mph which is nice result given relatively frequent congestion it was getting into. I think curve adjusted change lane slot and distance gave car ability to be precautionary at higher speeds - looking more forward to detect cars and try to execute change lane sooner (preserving speed momentum), while still requiring larger slot / gap in target lane before moving, and on opposite side, at slower speeds giving it more agility with smaller required slot to execute change lane.
+
+[[file:term3-project1-pic1.png][Simulator screenshot at 85.34 miles after 2h:00m:31s]]
+
+
+* Improvements
+- Use FSM with entry/exit/transition actions for states
+- Use cost function to execute more complex maneuver if it gets stuck in one lane, currently car is only matching speed of vehicle in front if it cannot change lane, it does not now how to back of and find free slot in the back. 
+- Implement MPC

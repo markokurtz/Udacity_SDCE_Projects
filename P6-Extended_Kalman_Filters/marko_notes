@@ -1,0 +1,5 @@
+cmake build with support for debug and rtags:
+  cmake -D CMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..
+
+nakon sto buildas jednom izvrsi komandu u build direktoriju:
+  rc -J 
